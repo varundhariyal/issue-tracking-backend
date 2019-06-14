@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, './apidoc')));
 
 
 
-const modelsPath = './model';
+const modelsPath = './models';
 const controllersPath = './controllers';
 const libsPath = './libs';
 const middlewaresPath = './middleware';
