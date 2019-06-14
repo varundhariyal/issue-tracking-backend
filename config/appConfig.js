@@ -1,6 +1,6 @@
 let appConfig = {};
 
-appConfig.port = 3306;
+appConfig.port = 3307;
 appConfig.allowedCorsOrigin = "*";
 appConfig.env = "dev";
 appConfig.db = {
