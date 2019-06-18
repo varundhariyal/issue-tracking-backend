@@ -41,11 +41,11 @@ let userSignup = (req, res) => {
     //validateUserInput
     let validateUserInput = () => {
         return new Promise((resolve, reject) => {
-            if (req.body.Email) {
-                if (!validateInput.Email(req.body.Email)) {
+            if (req.body.email) {
+                if (!validateInput.Email(req.body.email)) {
                     let apiResponse = response.generate(true, "Email does not meet requirement", 400, null)
                     reject(apiResponse)
-                } else if (check.isEmpty(req.body.Password)) {
+                } else if (check.isEmpty(req.body.password)) {
                     let apiResponse = response.generate(true, "Password Field/Parameter is empty", 400, null)
                     reject(apiResponse)
                 } else {
@@ -74,7 +74,7 @@ let userSignup = (req, res) => {
                         let newUser = new UserModel({
                             userId: shortid.generate(),
                             firstName: req.body.firstName,
-                            LastName: req.body.lastName,
+                            lastName: req.body.lastName,
                             email: req.body.email.toLowerCase(),
                             mobileNumber: req.body.mobileNumber,
                             password: passwordLib.hashpassword(req.body.Password),
@@ -118,8 +118,8 @@ let userSignup = (req, res) => {
 //function to update/reset password
 let updatePassword = (req, res) => {
     let newPasswordObject = {
-        Email: req.body.Email,
-        Password: passwordLib.hashpassword(req.body.Password)
+        email: req.body.email,
+        password: passwordLib.hashpassword(req.body.password)
     }
     UserModel.updateOne({
             Email: req.body.Email
@@ -177,7 +177,7 @@ let userLogin = (req, res) => {
     let validatePassword = (retrievedUserDetails) => {
         console.log('Validating User Entered Password')
         return new Promise((resolve, reject) => {
-            passwordLib.comparePassword(req.body.Password, retrievedUserDetails.Password, (err, passwordMatch) => {
+            passwordLib.comparePassword(req.body.password, retrievedUserDetails.password, (err, passwordMatch) => {
                 if (err) {
                     console.log(err)
                     logger.error(err.message, 'controller: validatePassword()', 10)

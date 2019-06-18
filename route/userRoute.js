@@ -121,7 +121,7 @@ module.exports.setRouter = (app) => {
             "data": {}
         }
     */
-    app.post(`${baseUrl}/sendMail`, sendMail.sendMail)
+    // app.post(`${baseUrl}/sendMail`, sendMail.sendMail)
 
     /**
      * @apiGroup users
