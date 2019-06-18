@@ -28,10 +28,11 @@ const user = new schema({
         type: String,
         default: ''
     },
-    // //for social login
-    // provider: {
-    //     type: 'local'
-    // }
+    //for social login
+    provider: {
+        type: String,
+        default:'local'
+    }
 })
 
 module.exports = mongoose.model('User', user)

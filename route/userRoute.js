@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const userController = require("../controllers/user");
-const listController = require('../controllers/singleTodo')
-const sendMail = require('../controllers/mail')
+const userController = require("../controller/userController");
+const sendMail = require('../controller/mail')
 const appConfig = require("../config/appConfig")
 const auth = require('../midlleware/auth')
 
