@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require("../controller/userController");
-const sendMail = require('../controller/mail')
+// const sendMail = require('../controller/mail')
 const appConfig = require("../config/appConfig")
 const auth = require('../midlleware/auth')
 
