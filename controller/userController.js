@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const shortId = require('shortid')
+const shortid = require('shortid')
 
 // libs
 const response = require('../libs/response')
@@ -9,6 +9,7 @@ const token = require('../libs/tokenLib')
 const time = require('../libs/timeLib')
 const check = require('../libs/checkLib')
 const passwordLib = require('../libs/generatePasswordLib')
+const validateInput=require('../libs/paramsValidationLib')
 
 //models
 const UserModel = require('../models/User')
@@ -77,7 +78,7 @@ let userSignup = (req, res) => {
                             lastName: req.body.lastName,
                             email: req.body.email.toLowerCase(),
                             mobileNumber: req.body.mobileNumber,
-                            password: passwordLib.hashpassword(req.body.Password),
+                            password: passwordLib.hashpassword(req.body.password),
                             createdOn: time.now()
                         })
                         //save newUser
